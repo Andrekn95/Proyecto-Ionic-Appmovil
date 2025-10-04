@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Contador</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item lines="none">
+      <ion-button color="primary" (click)="decrementar()">Menos</ion-button>
+      <ion-input
+        type="number"
+        [value]="counter()"
+        readonly
+        style="width: 60px; text-align: center;"
+        inputmode="numeric">
+      </ion-input>
+      <ion-button color="primary" (click)="incrementar()">Más</ion-button>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
