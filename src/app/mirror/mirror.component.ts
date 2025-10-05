@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { IonCard, IonCardContent, IonItem, IonInput, IonButton, IonCardHeader, IonCardTitle } from "@ionic/angular/standalone";
 import { ContadorService } from '../service/contador.service';
-import { RouterModule } from '@angular/router'; // Solo este import
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonButton } from '@ionic/angular/standalone';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-contador',
-  templateUrl: './contador.component.html',
-  styleUrls: ['./contador.component.scss'],
+  selector: 'app-mirror',
+  templateUrl: './mirror.component.html',
+  styleUrls: ['./mirror.component.scss'],
   standalone: true,
   imports: [
-    IonCardTitle,
-    IonCardHeader,
     IonCard,
+    IonCardHeader,
+    IonCardTitle,
     IonCardContent,
     IonItem,
     IonInput,
     IonButton,
-    RouterModule // Solo este, no el de ionic
+    RouterModule
   ]
 })
-export class ContadorComponent implements OnInit {
+export class MirrorComponent implements OnInit {
 
   constructor(public contadorService: ContadorService) {}
 
