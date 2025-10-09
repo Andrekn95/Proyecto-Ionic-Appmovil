@@ -1,39 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { IonCard, IonCardContent, IonItem, IonInput, IonButton, IonCardHeader, IonCardTitle } from "@ionic/angular/standalone";
+import { Component, OnInit,inject } from '@angular/core';
+import { IonCard, IonCardContent,IonButton } from "@ionic/angular/standalone";
 import { ContadorService } from '../service/contador.service';
-import { RouterModule } from '@angular/router'; // Solo este import
-
+import { RouterModule } from '@angular/router'; 
 @Component({
   selector: 'app-contador',
   templateUrl: './contador.component.html',
   styleUrls: ['./contador.component.scss'],
   standalone: true,
   imports: [
-    IonCardTitle,
-    IonCardHeader,
     IonCard,
     IonCardContent,
-    IonItem,
-    IonInput,
     IonButton,
-    RouterModule // Solo este, no el de ionic
+    RouterModule,
   ]
 })
 export class ContadorComponent implements OnInit {
-
-  constructor(public contadorService: ContadorService) {}
-
-  get counter() {
-    return this.contadorService.counter;
-  }
-
-  incrementar() {
-    this.contadorService.incrementar();
-  }
-
-  decrementar() {
-    this.contadorService.decrementar();
-  }
-
+ private contadorService = inject(ContadorService);
+ counter = this.contadorService.counter$;
+constructor() { }
   ngOnInit() {}
 }

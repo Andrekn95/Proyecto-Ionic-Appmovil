@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ContadorComponent } from './contador/contador.component'; // Importa el componente
 import { MirrorComponent } from './mirror/mirror.component'; // Importa el componente
+import { BotonComponent } from './boton/boton.component';
 export const routes: Routes = [
   {
     path: '',
@@ -20,4 +21,9 @@ export const routes: Routes = [
     path: 'mirror',
     component: MirrorComponent,
   },
+  {
+    path: 'boton',
+    component: BotonComponent,
+  },
 ];
+

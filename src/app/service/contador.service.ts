@@ -1,20 +1,16 @@
-import { Injectable, signal } from '@angular/core';
-
+import { Injectable, signal,  } from '@angular/core';
+import { WritableSignal } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
 export class ContadorService {
-  counter = signal(0);
+  counter$: WritableSignal<number>= signal(0);
 
   incrementar() {
-    this.counter.update(v => v < 10 ? v + 1 : 10);
+    this.counter$.update(i =>   i + 1  );
   }
 
   decrementar() {
-    this.counter.update(v => v > 0 ? v - 1 : 0);
-  }
-
-  set(value: number) {
-    this.counter.set(value);
+    this.counter$.update(i => i - 1 > 0 ? i -1:0 );
   }
 }

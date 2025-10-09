@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { IonCard, IonCardContent, IonButton } from "@ionic/angular/standalone";
 import { ContadorService } from '../service/contador.service';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonButton } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,30 +10,14 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     IonCard,
-    IonCardHeader,
-    IonCardTitle,
     IonCardContent,
-    IonItem,
-    IonInput,
     IonButton,
-    RouterModule
+    RouterModule,
   ]
 })
 export class MirrorComponent implements OnInit {
-
-  constructor(public contadorService: ContadorService) {}
-
-  get counter() {
-    return this.contadorService.counter;
-  }
-
-  incrementar() {
-    this.contadorService.incrementar();
-  }
-
-  decrementar() {
-    this.contadorService.decrementar();
-  }
-
+ private contadorService = inject(ContadorService);
+ counter = this.contadorService.counter$;
+constructor() { }
   ngOnInit() {}
 }
