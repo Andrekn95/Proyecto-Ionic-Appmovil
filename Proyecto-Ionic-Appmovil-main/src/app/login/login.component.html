@@ -1,7 +1,7 @@
 <ion-content class="ion-padding login-container">
   <h2 class="ion-text-center">Inicio de Sesión</h2>
 
-  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="formRegister" >
 
     <ion-item>
       <ion-label position="floating">Correo institucional</ion-label>
@@ -24,7 +24,6 @@
       }
     }
 
-    <!-- 🔹 Campo Password -->
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input
@@ -41,12 +40,11 @@
       @else if (password?.errors?.['minlength']) {
         <ion-text color="danger"><p>Debe tener al menos 6 caracteres.</p></ion-text>
       }
-      @else if (password?.errors?.['pattern']) {
+      @else if (password?.errors?.['dolar']) {
         <ion-text color="danger"><p>Debe contener el signo "$".</p></ion-text>
       }
     }
 
-    <!-- 🔹 Campo Confirmar contraseña -->
     <ion-item>
       <ion-label position="floating">Confirmar contraseña</ion-label>
       <ion-input
@@ -83,5 +81,6 @@
       class="ion-margin-top">
       Iniciar sesión
     </ion-button>
+
   </form>
 </ion-content>
